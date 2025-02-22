@@ -10,6 +10,7 @@ unique_ids:
     dashboard.EditProfile: '174014091237970491830907.61324'
     dashboard.ListDisasters: '1740154938440195338378966.10184'
     dashboard.ListDisasters.ItemTemplate1: '1740156116327492081761443.99805'
+    dashboard.QrGen: '1740234923773460546726767.4488'
     dashboard.ReportDisaster: '1740150315681408366819749.84467'
     register: '1738853847684943661764255.0734'
   modules: {}

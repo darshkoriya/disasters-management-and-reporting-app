@@ -1,0 +1,15 @@
+components:
+- layout_properties: {grid_position: 'GLYPIT,GFGRAU'}
+  name: label_1
+  properties: {align: center, bold: true, font_size: 30, text: Qr Generation}
+  type: Label
+- layout_properties: {grid_position: 'RDHSMG,RPEMUC'}
+  name: label_2
+  properties: {align: center, text: Enter your emergency contact information}
+  type: Label
+- layout_properties: {grid_position: 'SZTBCS,BKPPUE'}
+  name: input_contacts
+  properties: {align: left, placeholder: Contacts}
+  type: TextArea
+container: {type: ColumnPanel}
+is_package: true
