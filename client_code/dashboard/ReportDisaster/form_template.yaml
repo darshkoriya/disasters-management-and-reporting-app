@@ -1,0 +1,38 @@
+components:
+- layout_properties: {grid_position: 'BCYVPC,FITQDN'}
+  name: report_label
+  properties: {align: center, bold: true, font_size: 30, text: Report Disaster}
+  type: Label
+- layout_properties: {grid_position: 'DEEGYE,FKXTAV'}
+  name: spacer_1
+  properties: {height: 32}
+  type: Spacer
+- layout_properties: {grid_position: 'DEEGYE,QFUHBX BVSEKN,QXDVZN'}
+  name: label_1
+  properties: {text: Disaster severity}
+  type: Label
+- event_bindings: {change: drop_down_severity_change}
+  layout_properties: {grid_position: 'DEEGYE,QFUHBX GXXAJP,TAYORU'}
+  name: drop_down_severity
+  properties: {align: full, enabled: true}
+  type: DropDown
+- layout_properties: {grid_position: 'DEEGYE,QFUHBX UNZIBU,JISZJE'}
+  name: label_1_copy
+  properties: {text: Disaster Type}
+  type: Label
+- event_bindings: {change: drop_down_disaster_change}
+  layout_properties: {grid_position: 'DEEGYE,QFUHBX OBDRYR,LNUTJH'}
+  name: drop_down_disaster
+  properties: {}
+  type: DropDown
+- event_bindings: {click: button_submit_click}
+  layout_properties: {grid_position: 'DEEGYE,QFUHBX XXPTMF,VUONEL'}
+  name: button_submit
+  properties: {align: center, background: red, foreground: white, text: Submit}
+  type: Button
+- layout_properties: {grid_position: 'DEEGYE,LFUCZY'}
+  name: spacer_2
+  properties: {height: 32}
+  type: Spacer
+container: {type: ColumnPanel}
+is_package: true

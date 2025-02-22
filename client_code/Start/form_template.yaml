@@ -1,0 +1,35 @@
+components:
+- layout_properties: {grid_position: 'KQVGJW,RRNMSB'}
+  name: spacer_1
+  properties: {height: 32}
+  type: Spacer
+- layout_properties: {grid_position: 'KMTDGJ,DGXLEH'}
+  name: spacer_1_copy
+  properties: {height: 32}
+  type: Spacer
+- layout_properties: {grid_position: 'COXACH,ZJFWSO'}
+  name: welcome_label
+  properties:
+    align: center
+    bold: true
+    font_size: 25
+    spacing:
+      margin: [73, null, 0, null]
+    text: |-
+      Welcome
+      to
+      Disasters app
+    underline: false
+  type: Label
+- event_bindings: {click: login_redirect_click}
+  layout_properties: {grid_position: 'BUKQES,CYRDUU'}
+  name: login_redirect
+  properties: {background: 'theme:Secondary Container', foreground: 'theme:On Surface', text: Login}
+  type: Button
+- event_bindings: {click: Sign_up_redirect_click}
+  layout_properties: {grid_position: 'VQHAGD,VWYCSN'}
+  name: Sign_up_redirect
+  properties: {align: center, background: 'theme:Secondary Container', foreground: 'theme:On Background', text: Signup}
+  type: Button
+container: {type: ColumnPanel}
+is_package: true

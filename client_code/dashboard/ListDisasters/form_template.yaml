@@ -1,0 +1,7 @@
+components:
+- layout_properties: {grid_position: 'SGOHMO,NMTGRF'}
+  name: repeating_panel_1
+  properties: {item_template: dashboard.DisasterRow}
+  type: RepeatingPanel
+container: {type: ColumnPanel}
+is_package: true

@@ -1,0 +1,48 @@
+components:
+- layout_properties: {grid_position: 'GGOZKA,NOCGSW'}
+  name: label_email
+  properties: {text: '                                                                                    Email'}
+  type: Label
+- layout_properties: {grid_position: 'GNQMPC,JYKFDU'}
+  name: spacer_1
+  properties: {height: 32}
+  type: Spacer
+- layout_properties: {grid_position: 'GNQMPC,JIMSYS'}
+  name: email_input
+  properties: {placeholder: Email}
+  type: TextBox
+- layout_properties: {grid_position: 'GNQMPC,OTVNBC'}
+  name: spacer_2
+  properties: {height: 32}
+  type: Spacer
+- layout_properties: {grid_position: 'XQQGCH,YOVDIC'}
+  name: label_password
+  properties: {text: '                                                                                    Password'}
+  type: Label
+- layout_properties: {grid_position: 'QUJOEA,OZMLYA'}
+  name: spacer_2_copy_2
+  properties: {height: 32}
+  type: Spacer
+- layout_properties: {grid_position: 'QUJOEA,IRAWOG'}
+  name: password_input
+  properties: {hide_text: true, placeholder: Password}
+  type: TextBox
+- layout_properties: {grid_position: 'QUJOEA,GEZWEB'}
+  name: spacer_2_copy
+  properties: {height: 32}
+  type: Spacer
+- layout_properties: {grid_position: 'JNNWIB,OMJVCN'}
+  name: spacer_2_copy_4
+  properties: {height: 32}
+  type: Spacer
+- event_bindings: {click: login_button_click}
+  layout_properties: {grid_position: 'JNNWIB,FGFTOO'}
+  name: login_button
+  properties: {background: 'theme:Secondary Container', foreground: 'theme:On Surface', text: Login}
+  type: Button
+- layout_properties: {grid_position: 'JNNWIB,DRGILR'}
+  name: spacer_2_copy_3
+  properties: {height: 32}
+  type: Spacer
+container: {type: ColumnPanel}
+is_package: true

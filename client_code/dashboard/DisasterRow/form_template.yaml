@@ -1,0 +1,15 @@
+components:
+- layout_properties: {grid_position: 'QJCEEA,XGKJLA'}
+  name: label_disaster
+  properties: {}
+  type: Label
+- layout_properties: {grid_position: 'QJCEEA,QOSUMJ'}
+  name: label_severity
+  properties: {align: center, text: label_severity}
+  type: Label
+- layout_properties: {grid_position: 'QJCEEA,EPQWCE'}
+  name: label_timestamp
+  properties: {align: right}
+  type: Label
+container: {type: ColumnPanel}
+is_package: true

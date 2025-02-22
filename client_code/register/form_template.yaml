@@ -1,0 +1,84 @@
+components:
+- layout_properties: {grid_position: 'CIMDXN,VYQKRS'}
+  name: label_disabilities
+  properties: {text: Enter your full name}
+  type: Label
+- layout_properties: {full_width_row: false, grid_position: 'VDQYNO,URRNTO', row_background: ''}
+  name: first_name_input
+  properties:
+    align: left
+    bold: false
+    border: ''
+    enabled: true
+    foreground: ''
+    hide_text: false
+    margin: [null, 0, null, null]
+    placeholder: First name
+    role: null
+    text: ''
+    visible: true
+  type: TextBox
+- layout_properties: {grid_position: 'VDQYNO,HXVOXX'}
+  name: last_name_input
+  properties: {placeholder: Last name, text: ''}
+  type: TextBox
+- layout_properties: {grid_position: 'CUXXRN,LGMXIF'}
+  name: email_label
+  properties: {text: Enter your email}
+  type: Label
+- layout_properties: {grid_position: 'TCYNPA,XDEQGQ'}
+  name: email_input
+  properties: {placeholder: Email}
+  type: TextBox
+- layout_properties: {grid_position: 'IOYPSZ,ZDSAWD'}
+  name: password_label
+  properties: {text: Password}
+  type: Label
+- layout_properties: {grid_position: 'HLNNPQ,TKNCSA'}
+  name: password_input
+  properties: {hide_text: true, placeholder: password}
+  type: TextBox
+- layout_properties: {grid_position: 'HLNNPQ,MEYLTD'}
+  name: confirm_password
+  properties: {hide_text: true, placeholder: confirm password}
+  type: TextBox
+- layout_properties: {grid_position: 'RABAWV,JCYARA'}
+  name: label_birthday
+  properties: {text: Enter your birthday}
+  type: Label
+- event_bindings: {change: date_picker_1_change}
+  layout_properties: {grid_position: 'IFQJQC,NCCJAT', row_background: ''}
+  name: date_picker_1
+  properties: {background: '', foreground: '', pick_time: false}
+  type: DatePicker
+- layout_properties: {grid_position: 'CBTQOS,UXIOCN'}
+  name: label_disablities
+  properties: {text: Please enter any disabilities/health issues you may have}
+  type: Label
+- layout_properties: {grid_position: 'XTUVUA,EZROGP'}
+  name: disablities_input
+  properties: {}
+  type: TextArea
+- layout_properties: {grid_position: 'WTANFY,ZZQTOB'}
+  name: label_location
+  properties: {text: Select your home location}
+  type: Label
+- event_bindings: {change: home_select_box_change}
+  layout_properties: {grid_position: 'PAKYSN,TDCNBU'}
+  name: home_select_box
+  properties: {}
+  type: DropDown
+- event_bindings: {click: Submit_click}
+  layout_properties: {grid_position: 'CYSJLF,KZTPVE'}
+  name: Submit
+  properties: {align: right, background: 'theme:Secondary Container', foreground: 'theme:On Surface', text: Submit}
+  type: Button
+container:
+  properties:
+    background: ''
+    spacing:
+      margin: [0, 0, 0, null]
+      padding: [null, 0, null, 0]
+    visible: true
+  type: ColumnPanel
+is_package: true
