@@ -16,7 +16,9 @@ class DisasterRow(DisasterRowTemplate):
         self.label_disaster.text = self.item.get("disaster_name", "Unknown Disaster")
         self.label_severity.text = f"Severity: {self.item.get('severity', 'Unknown')}"
         self.label_timestamp.text = f"Reported on: {self.item.get('timestamp', 'Unknown')}"
-        position = map(float, self.item.get('location').strip().split(','))
+        position = tuple(map(float, self.item.get('location').strip().split(',')))
+        GoogleMap.LatLng(position=position)
+        print()
         self.lat, self.lon = map(float, self.item.get('location').strip().split(','))
 
 
@@ -26,7 +28,7 @@ class DisasterRow(DisasterRowTemplate):
         self.background = severity_colors.get(severity, "#FFFFFF")  # Default White
 
         self.location_map.center = position
-        self.location_map.center = 12
+        self.location_map.zoom = 12
         marker = GoogleMap.Marker(position=position)
         self.location_map.add_component(marker)
       
