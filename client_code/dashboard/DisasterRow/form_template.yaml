@@ -11,5 +11,10 @@ components:
   name: label_timestamp
   properties: {align: right}
   type: Label
+- event_bindings: {bounds_changed: location_map_bounds_changed}
+  layout_properties: {grid_position: 'EDQDBT,VDRAVQ'}
+  name: location_map
+  properties: {height: 404.5}
+  type: GoogleMap
 container: {type: ColumnPanel}
 is_package: true

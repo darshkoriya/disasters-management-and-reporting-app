@@ -92,7 +92,6 @@ def register_user(username, email, password, birthday, disabilties, home):
                              username=username, 
                              email=email, 
                              password=hashed_password, 
-                             password_hash=hashed_password, 
                              birthday=str(birthday), 
                              disablities=disabilties,
                              home_location=home,
@@ -128,16 +127,17 @@ def get_disasters():
         {
             "disaster_name": row["disaster"],
             "severity": row["severity"],
-            "timestamp": datetime.datetime.fromtimestamp(float(row["reported_time"])).strftime("%Y-%m-%d %H:%M:%S") if row["reported_time"] else None
+            "timestamp": datetime.datetime.fromtimestamp(float(row["reported_time"])).strftime("%Y-%m-%d %H:%M:%S") if row["reported_time"] else None,
+            "location": row['location']
         }
         for row in app_tables.disasters.search()
     ]
 
 
 @anvil.server.callable
-def report_disaster(user, disaster, severity):
+def report_disaster(user, disaster, severity, lat, lon):
   app_tables.disasters.add_row(disaster_id=generate_random_text(35, True, True), 
-                               location=user['home_location'], 
+                               location=f'{lat}, {lon}', 
                                reported_time=str(time.time()),
                                reporter_id=user['user_id'],
                                disaster=disaster,
