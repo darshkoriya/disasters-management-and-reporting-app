@@ -1,8 +1,16 @@
 components:
+- layout_properties: {grid_position: 'GGOZKA,ICVGDH'}
+  name: spacer_1_copy
+  properties: {height: 32}
+  type: Spacer
 - layout_properties: {grid_position: 'GGOZKA,NOCGSW'}
   name: label_email
   properties: {text: '                                                                                    Email'}
   type: Label
+- layout_properties: {grid_position: 'GGOZKA,IMKYNS'}
+  name: spacer_1_copy_2
+  properties: {height: 32}
+  type: Spacer
 - layout_properties: {grid_position: 'GNQMPC,JYKFDU'}
   name: spacer_1
   properties: {height: 32}
