@@ -13,16 +13,23 @@ components:
     name: home_link
     properties: {align: center, text: Home}
     type: Link
-  - event_bindings: {click: report_disaster_button_click}
-    layout_properties: {grid_position: 'WDOHMT,GPIKXJ'}
-    name: report_disaster_button
-    properties: {background: red, border: '', foreground: white, text: Report Disaster}
+  - event_bindings: {click: generate_qr_click}
+    layout_properties: {grid_position: 'UFGAPR,FAJYKA'}
+    name: generate_qr
+    properties:
+      background: white
+      foreground: black
+      text: "Generate \nemergency Qr\n"
     type: Button
   layout_properties: {slot: left-nav}
   name: Sidebar
   properties: {}
   type: ColumnPanel
 - components:
+  - event_bindings: {click: report_disaster_button_click}
+    name: report_disaster_button
+    properties: {background: red, border: '', foreground: white, text: Report Disaster}
+    type: Button
   - name: location_label
     properties: {}
     type: Label

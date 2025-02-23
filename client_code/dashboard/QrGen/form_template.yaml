@@ -1,15 +1,20 @@
 components:
-- layout_properties: {grid_position: 'GLYPIT,GFGRAU'}
+- layout_properties: {grid_position: 'EXSFWG,WQPKKU'}
   name: label_1
   properties: {align: center, bold: true, font_size: 30, text: Qr Generation}
   type: Label
 - layout_properties: {grid_position: 'RDHSMG,RPEMUC'}
   name: label_2
-  properties: {align: center, text: Enter your emergency contact information}
+  properties: {align: left, text: Enter your emergency contact information}
   type: Label
 - layout_properties: {grid_position: 'SZTBCS,BKPPUE'}
   name: input_contacts
   properties: {align: left, placeholder: Contacts}
   type: TextArea
+- event_bindings: {click: submit_button_click}
+  layout_properties: {grid_position: 'QFSXKU,DXREAT'}
+  name: submit_button
+  properties: {align: full, background: white, foreground: black, text: Submit}
+  type: Button
 container: {type: ColumnPanel}
 is_package: true

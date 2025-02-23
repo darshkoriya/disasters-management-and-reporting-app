@@ -6,7 +6,9 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 import anvil.js
+
 from .ListDisasters import ListDisasters
+from .QrGen import QrGen
 
 
 class dashboard(dashboardTemplate):
@@ -26,6 +28,7 @@ class dashboard(dashboardTemplate):
     self.location_label.text = coordinates_map.get(tuple(map(float, str(user['home_location']).split(", "))), "404: Unknown Location")
     self.forms = {
             "ListDisasters": ListDisasters,
+            "QrGen": QrGen
         }
     self.load_form('ListDisasters')
 
@@ -47,3 +50,6 @@ class dashboard(dashboardTemplate):
 
   def link_user_profile_click(self, **event_args):
     open_form('dashboard.EditProfile')
+
+  def generate_qr_click(self, **event_args):
+    self.load_form('QrGen')

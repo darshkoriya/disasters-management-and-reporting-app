@@ -10,6 +10,10 @@ import re
 import base64
 import string
 import time
+import qrcode
+from PIL import Image
+import cv2
+from io import BytesIO
 
 locations = [
     ('India, Andhra Pradesh, Visakhapatnam', (17.6868, 83.2185)),
@@ -135,12 +139,26 @@ def get_disasters():
 
 
 @anvil.server.callable
-def report_disaster(user, disaster, severity, lat, lon):
-  app_tables.disasters.add_row(disaster_id=generate_random_text(35, True, True), 
-                               location=f'{lat}, {lon}', 
-                               reported_time=str(time.time()),
-                               reporter_id=user['user_id'],
-                               disaster=disaster,
-                               severity=severity)
+def generate_qr(message):
+    # Generate QR code
+    qr = qrcode.QRCode(
+        version=1,  # Adjust as needed
+        error_correction=qrcode.constants.ERROR_CORRECT_L,
+        box_size=10,
+        border=4,
+    )
+    qr.add_data(message)
+    qr.make(fit=True)
+
+    # Create the QR code image
+    img = qr.make_image(fill_color="black", back_color="white").convert("RGB")
+
+    # Save to a BytesIO object
+    img_io = BytesIO()
+    img.save(img_io, format="PNG")
+    img_io.seek(0)
+
+    # Return as an Anvil Media object
+    return anvil.media.from_file(img_io, "image/png", "qr_code.png")
 
 
