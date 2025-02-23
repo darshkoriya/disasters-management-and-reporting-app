@@ -11,3 +11,5 @@ Smart Donation Networks  will connect donors with verified relief efforts to ens
 Emergency Communication via QR-based systems allows users to quickly connect with first responders and support services.
 
 we will add mesh networking and offline communication technologies, soon so that this aap can be used without network too 
+
+this whole idea and project is developed by students of class 9 and its our first hackathon 
