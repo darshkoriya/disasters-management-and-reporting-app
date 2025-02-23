@@ -1,6 +1,20 @@
 allow_embedding: false
 correct_dependency_ids: {}
 db_schema:
+  blood_reports:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: id
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: user_id
+      type: string
+    - admin_ui: {order: 2, width: 200}
+      name: location
+      type: string
+    server: full
+    title: blood_reports
   disasters:
     client: none
     columns:
