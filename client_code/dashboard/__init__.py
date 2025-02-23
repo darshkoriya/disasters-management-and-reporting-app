@@ -10,7 +10,7 @@ import anvil.js
 from .ListDisasters import ListDisasters
 from .QrGen import QrGen
 from .ReportDisaster import ReportDisaster
-from .EditProfile import EditProfile
+from .EditUser import EditUser
 
 
 class dashboard(dashboardTemplate):
@@ -23,16 +23,16 @@ class dashboard(dashboardTemplate):
 
 
     token = anvil.js.window.localStorage.getItem("token")
-    state, user = anvil.server.call('get_login_data', token)
+    state, self.user = anvil.server.call('get_login_data', token)
     if not state:
       open_form('Start')
-    self.username_display.text = user['username']
-    self.location_label.text = coordinates_map.get(tuple(map(float, str(user['home_location']).split(", "))), "404: Unknown Location")
+    self.username_display.text = self.user['username']
+    self.location_label.text = coordinates_map.get(tuple(map(float, str(self.user['home_location']).split(", "))), "404: Unknown Location")
     self.forms = {
             "ListDisasters": ListDisasters,
             "QrGen": QrGen,
             "ReportDisaster": ReportDisaster,
-            "EditProfile": EditProfile
+            "EditProfile": EditUser
         }
     self.load_form('ListDisasters')
 
@@ -56,7 +56,24 @@ class dashboard(dashboardTemplate):
     self.load_form('EditProfile')
 
   def generate_qr_click(self, **event_args):
-    self.load_form('QrGen')
+    data = f"""Person Details:
+    Name: {self.user['username']}
+    DoB (YY-MM-DD): {self.user['birthday']}
+    Disabilities: {self.user['disablities']}
+    blood group: {self.user['blood_group']}
+    diseases: {self.user['diseases']}
+    allergies: {self.user['allergies']}
+    Emergency Contacts: {self.user['important_contacts']}
+    """
+
+    # Call server function and get the QR code as a Media object
+    qr_media = anvil.server.call('generate_qr', data, f'Qr_{self.user["username"]}')
+
+    # Provide download link to the user
+    #anvil.js.window.open(qr_media.url, "_blank")  # Opens in new tab
+
+    # Alternatively, use Anvil's built-in download function
+    anvil.download(qr_media)
 
   def home_link_click(self, **event_args):
     self.load_form('ListDisasters')

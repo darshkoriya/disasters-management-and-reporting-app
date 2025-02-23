@@ -23,6 +23,19 @@ class register(registerTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.home_select_box.items = anvil.server.call('get_locations')
+    self.blood_group_selecton.items = [
+    "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-",  # Common ABO groups
+    "Bombay Blood Group (hh)",  # Extremely rare
+    "Rh-null",  # Golden Blood (very rare)
+    "Duffy-negative",  # Common in certain populations
+    "Kell-positive (K+)", "Kell-negative (K-)",  # Kell blood system
+    "Diego-positive",  # Rare, mostly in Indigenous American & East Asian populations
+    "Lutheran B-negative",  # Very rare
+    "MNS system variants",  # Rare antigenic variations
+    "Junior blood group",  # Rare in certain populations
+    "Langereis blood group"  # Rare
+]
+
     self.lat = 0
     self.lon = 0
 
@@ -51,6 +64,7 @@ class register(registerTemplate):
 
   def Submit_click(self, **event_args):
     firstname = self.first_name_input.text
+    middle_name = self.middle_name_input.text
     lastname = self.last_name_input.text
     email = self.email_input.text
     password=self.password_input.text
@@ -59,15 +73,30 @@ class register(registerTemplate):
     disabilties = self.disablities_input.text
     home = f'{lat}, {lon}'
     exact_location = f'{self.lat_exact}, {self.lon_exact}'
+    blood_group = self.blood_group_selecton.selected_value
+    allergies = self.allergies_input.text
+    diseases = self.diseases_input.text
+    contacts = self.contact_input.text
 
     if not firstname or not lastname or not email or not password or not confirm_password or not birthday:
             alert("Please fill in all fields!")
             return
-    username = f'{firstname} {lastname}'
+    username = f'{firstname} ' + (f'{middle_name} ' if middle_name else '') + lastname
     if password != confirm_password:
             alert("Passwords do not match! Please try again")
             return
-    success, message = anvil.server.call('register_user', username, email, password, birthday, disabilties, home, exact_location)
+    success, message = anvil.server.call('register_user', 
+                                         username, 
+                                         email, 
+                                         password, 
+                                         birthday, 
+                                         disabilties, 
+                                         home, 
+                                         exact_location, 
+                                         blood_group, 
+                                         allergies,
+                                         diseases,
+                                         contacts)
 
 
     if success:

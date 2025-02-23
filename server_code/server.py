@@ -80,7 +80,7 @@ def is_user_logged_in():
     return anvil.server.session.get('user_email') in logged_in_users
 
 @anvil.server.callable
-def register_user(username, email, password, birthday, disabilties, home, exact_location):
+def register_user(username, email, password, birthday, disabilties, home, exact_location, blood_group, allergies, diseases, contacts):
     if app_tables.users.get(email=email):
         return False, "Email already registered!"
 
@@ -100,7 +100,11 @@ def register_user(username, email, password, birthday, disabilties, home, exact_
                              home_location=home,
                              user_id=userid,
                              exact_location=exact_location,
-                             is_admin=False)
+                             is_admin=False,
+                             allergies=allergies,
+                             diseases=diseases,
+                             blood_group=blood_group,
+                             important_contacts=contacts)
 
     return True, "User registered successfully!"
 
@@ -188,4 +192,26 @@ def delete_disaster(disaster_id= None):
     disaster.delete()
     return True
   return False
+
+
+@anvil.server.callable
+def update_user(updated_data):
+    user = app_tables.users.get(user_id=updated_data["user_id"])
+    if not user:
+        return False, "User not found"
+
+    user.update(
+        username=updated_data["username"],  # Store as one string
+        email=updated_data["email"],
+        birthday=updated_data["birthday"],
+        disablities=updated_data.get("disabilities", ""),
+        blood_group=updated_data.get("blood_group", ""),
+        allergies=updated_data.get("allergies", ""),
+        diseases=updated_data.get("diseases", ""),
+        important_contacts=updated_data.get("contacts", ""),
+        home_location=updated_data.get("home", "0,0")  # Default location if empty
+    )
+
+    return True, "User updated successfully"
+
 
