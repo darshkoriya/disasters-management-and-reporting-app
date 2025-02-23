@@ -31,6 +31,24 @@ class register(registerTemplate):
     if state:
       open_form('dashboard')
 
+    geolocation = anvil.js.window.navigator.geolocation
+  
+    if geolocation:
+        geolocation.getCurrentPosition(self.location_success, self.location_error)
+    else:
+        alert("Geolocation is not supported by your browser.")
+
+
+  def location_success(self, position):
+        """Callback when location is retrieved successfully"""
+        self.lat_exact = position.coords.latitude
+        self.lon_exact = position.coords.longitude
+        #alert(f"Your Location:\nLatitude: {lat}\nLongitude: {lon}")
+
+  def location_error(self, error):
+      """Callback when location retrieval fails"""
+      alert(f"Error getting location: {error.message}")
+
   def Submit_click(self, **event_args):
     firstname = self.first_name_input.text
     lastname = self.last_name_input.text
@@ -40,6 +58,7 @@ class register(registerTemplate):
     birthday = self.date_picker_1.date
     disabilties = self.disablities_input.text
     home = f'{lat}, {lon}'
+    exact_location = f'{self.lat_exact}, {self.lon_exact}'
 
     if not firstname or not lastname or not email or not password or not confirm_password or not birthday:
             alert("Please fill in all fields!")
@@ -48,7 +67,7 @@ class register(registerTemplate):
     if password != confirm_password:
             alert("Passwords do not match! Please try again")
             return
-    success, message = anvil.server.call('register_user', username, email, password, birthday, disabilties, home)
+    success, message = anvil.server.call('register_user', username, email, password, birthday, disabilties, home, exact_location)
 
 
     if success:

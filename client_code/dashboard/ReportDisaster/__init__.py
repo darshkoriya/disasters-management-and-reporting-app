@@ -86,4 +86,3 @@ class ReportDisaster(ReportDisasterTemplate):
 
     anvil.server.call('report_disaster', self.user, selected_disaster, selected_severity, self.lat, self.lon)
     alert('Disaster reported successfully')
-    open_form('dashboard')

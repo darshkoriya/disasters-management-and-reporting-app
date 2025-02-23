@@ -10,6 +10,7 @@ import anvil.js
 from .ListDisasters import ListDisasters
 from .QrGen import QrGen
 from .ReportDisaster import ReportDisaster
+from .EditProfile import EditProfile
 
 
 class dashboard(dashboardTemplate):
@@ -30,7 +31,8 @@ class dashboard(dashboardTemplate):
     self.forms = {
             "ListDisasters": ListDisasters,
             "QrGen": QrGen,
-            "ReportDisaster": ReportDisaster
+            "ReportDisaster": ReportDisaster,
+            "EditProfile": EditProfile
         }
     self.load_form('ListDisasters')
 
@@ -51,7 +53,10 @@ class dashboard(dashboardTemplate):
     self.load_form('ReportDisaster')
 
   def link_user_profile_click(self, **event_args):
-    open_form('dashboard.EditProfile')
+    self.load_form('EditProfile')
 
   def generate_qr_click(self, **event_args):
     self.load_form('QrGen')
+
+  def home_link_click(self, **event_args):
+    self.load_form('ListDisasters')

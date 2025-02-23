@@ -80,7 +80,7 @@ def is_user_logged_in():
     return anvil.server.session.get('user_email') in logged_in_users
 
 @anvil.server.callable
-def register_user(username, email, password, birthday, disabilties, home):
+def register_user(username, email, password, birthday, disabilties, home, exact_location):
     if app_tables.users.get(email=email):
         return False, "Email already registered!"
 
@@ -98,7 +98,9 @@ def register_user(username, email, password, birthday, disabilties, home):
                              birthday=str(birthday), 
                              disablities=disabilties,
                              home_location=home,
-                             user_id=userid)
+                             user_id=userid,
+                             exact_location=exact_location,
+                             is_admin=False)
 
     return True, "User registered successfully!"
 
@@ -128,10 +130,12 @@ def get_locations():
 def get_disasters():
     return [
         {
+            "disaster_id": row["disaster_id"],
+            "location": row['location'],
+            "reporter_id": row['reporter_id'],
+            "reported_time": datetime.datetime.fromtimestamp(float(row["reported_time"])).strftime("%I:%M:%S %p | %d-%m-%Y ") if row["reported_time"] else None,
             "disaster_name": row["disaster"],
             "severity": row["severity"],
-            "timestamp": datetime.datetime.fromtimestamp(float(row["reported_time"])).strftime("%Y-%m-%d %H:%M:%S") if row["reported_time"] else None,
-            "location": row['location']
         }
         for row in app_tables.disasters.search()
     ]
@@ -170,4 +174,18 @@ def generate_qr(message, filename):
     # Return as an Anvil BlobMedia object
     return anvil.BlobMedia("image/png", img_io.getvalue(), name=filename)
 
+
+@anvil.server.callable
+def delete_disaster(disaster_id= None):
+  print(disaster_id)
+  if not disaster_id:
+    for row in app_tables.disasters.search():
+            row.delete()
+    return True
+    
+  disaster = app_tables.disasters.get(disaster_id=disaster_id)
+  if disaster:
+    disaster.delete()
+    return True
+  return False
 

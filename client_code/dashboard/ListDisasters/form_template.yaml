@@ -1,4 +1,9 @@
 components:
+- event_bindings: {click: clear_disasters_click}
+  layout_properties: {grid_position: 'ZBIYCL,TGSEQT'}
+  name: clear_disasters
+  properties: {align: left, background: red, foreground: white, text: Clear All Disasters, visible: false}
+  type: Button
 - layout_properties: {grid_position: 'SGOHMO,NMTGRF'}
   name: repeating_panel_1
   properties: {item_template: dashboard.DisasterRow}

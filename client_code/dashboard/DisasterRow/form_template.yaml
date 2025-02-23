@@ -1,20 +1,25 @@
 components:
 - layout_properties: {grid_position: 'QJCEEA,XGKJLA JQRJCK,MRQRPQ'}
   name: label_disaster
-  properties: {align: center}
+  properties: {align: center, bold: true, foreground: black}
   type: Label
 - event_bindings: {click: show_location_click}
   layout_properties: {grid_position: 'QJCEEA,XGKJLA HLXRWN,NHIFPC'}
   name: show_location
   properties: {align: left, background: white, foreground: black, text: Show Location}
   type: Button
+- event_bindings: {click: delete_disaster_click}
+  layout_properties: {grid_position: 'QJCEEA,XGKJLA JZRQWZ,MWBELD'}
+  name: delete_disaster
+  properties: {align: left, background: red, foreground: white, icon: 'fa:trash', text: Remove, visible: false}
+  type: Button
 - layout_properties: {grid_position: 'QJCEEA,QOSUMJ'}
   name: label_severity
-  properties: {align: center, text: label_severity}
+  properties: {align: center, bold: true, foreground: black, text: label_severity}
   type: Label
 - layout_properties: {grid_position: 'QJCEEA,EPQWCE'}
   name: label_timestamp
-  properties: {align: center}
+  properties: {align: center, bold: true, foreground: black}
   type: Label
 - event_bindings: {bounds_changed: location_map_bounds_changed}
   layout_properties: {grid_position: 'EDQDBT,VDRAVQ'}
