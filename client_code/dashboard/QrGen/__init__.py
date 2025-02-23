@@ -8,7 +8,6 @@ from anvil.tables import app_tables
 
 
 
-
 class QrGen(QrGenTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
@@ -25,10 +24,10 @@ class QrGen(QrGenTemplate):
     """
 
     # Call server function and get the QR code as a Media object
-    qr_media = anvil.server.call('generate_qr', data)
+    qr_media = anvil.server.call('generate_qr', data, f'Qr_{self.user["username"]}')
 
     # Provide download link to the user
-    anvil.js.window.open(qr_media.url, "_blank")  # Opens in new tab
+    #anvil.js.window.open(qr_media.url, "_blank")  # Opens in new tab
 
     # Alternatively, use Anvil's built-in download function
     anvil.download(qr_media)

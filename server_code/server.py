@@ -12,7 +12,6 @@ import string
 import time
 import qrcode
 from PIL import Image
-import cv2
 from io import BytesIO
 
 locations = [
@@ -139,7 +138,17 @@ def get_disasters():
 
 
 @anvil.server.callable
-def generate_qr(message):
+def report_disaster(user, disaster, severity, lat, lon):
+  app_tables.disasters.add_row(disaster_id=generate_random_text(35, True, True), 
+                               location=f'{lat}, {lon}', 
+                               reported_time=str(time.time()),
+                               reporter_id=user['user_id'],
+                               disaster=disaster,
+                               severity=severity)
+
+
+@anvil.server.callable
+def generate_qr(message, filename):
     # Generate QR code
     qr = qrcode.QRCode(
         version=1,  # Adjust as needed
@@ -156,9 +165,9 @@ def generate_qr(message):
     # Save to a BytesIO object
     img_io = BytesIO()
     img.save(img_io, format="PNG")
-    img_io.seek(0)
+    img_io.seek(0)  # Move to the beginning of the file
 
-    # Return as an Anvil Media object
-    return anvil.media.from_file(img_io, "image/png", "qr_code.png")
+    # Return as an Anvil BlobMedia object
+    return anvil.BlobMedia("image/png", img_io.getvalue(), name=filename)
 
 
