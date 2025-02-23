@@ -9,6 +9,7 @@ import anvil.js
 
 from .ListDisasters import ListDisasters
 from .QrGen import QrGen
+from .ReportDisaster import ReportDisaster
 
 
 class dashboard(dashboardTemplate):
@@ -28,7 +29,8 @@ class dashboard(dashboardTemplate):
     self.location_label.text = coordinates_map.get(tuple(map(float, str(user['home_location']).split(", "))), "404: Unknown Location")
     self.forms = {
             "ListDisasters": ListDisasters,
-            "QrGen": QrGen
+            "QrGen": QrGen,
+            "ReportDisaster": ReportDisaster
         }
     self.load_form('ListDisasters')
 
@@ -46,7 +48,7 @@ class dashboard(dashboardTemplate):
     open_form('Start')
 
   def report_disaster_button_click(self, **event_args):
-    open_form('dashboard.ReportDisaster')
+    self.load_form('ReportDisaster')
 
   def link_user_profile_click(self, **event_args):
     open_form('dashboard.EditProfile')
