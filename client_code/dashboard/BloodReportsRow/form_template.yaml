@@ -1,21 +1,21 @@
 components:
-- layout_properties: {grid_position: 'QJCEEA,XGKJLA JQRJCK,MRQRPQ'}
-  name: label_1
-  properties: {align: center, bold: true, foreground: black, text: 'Blood Type:'}
+- layout_properties: {grid_position: 'QJCEEA,XGKJLA SAICEF,JDKYEL'}
+  name: label_blood_type
+  properties: {align: center, bold: true, foreground: black, text: ''}
   type: Label
 - event_bindings: {click: show_location_click}
-  layout_properties: {grid_position: 'QJCEEA,XGKJLA HLXRWN,NHIFPC'}
+  layout_properties: {grid_position: 'QJCEEA,XGKJLA'}
   name: show_location
-  properties: {align: left, background: white, foreground: black, text: Show Location}
+  properties: {align: center, background: white, bold: true, foreground: black, text: Show Location}
   type: Button
-- layout_properties: {grid_position: 'QJCEEA,QOSUMJ HHXFKX,CVBHDG'}
-  name: label_blood_type
-  properties: {align: center, bold: true, foreground: black, text: label_severity}
+- layout_properties: {grid_position: 'QJCEEA,QOSUMJ NQVJMU,PWSSNV'}
+  name: label_contact
+  properties: {align: center, bold: true, foreground: black}
   type: Label
 - event_bindings: {click: delete_report_click}
-  layout_properties: {grid_position: 'QJCEEA,QOSUMJ CYTJAG,EPJTEK'}
+  layout_properties: {grid_position: 'QJCEEA,QOSUMJ BIEACD,JAENAB'}
   name: delete_report
-  properties: {align: right, background: red, foreground: white, icon: 'fa:trash', text: Remove, visible: false}
+  properties: {align: center, background: red, bold: true, foreground: white, icon: 'fa:trash', text: Remove, visible: false}
   type: Button
 - event_bindings: {bounds_changed: location_map_bounds_changed}
   layout_properties: {grid_position: 'EDQDBT,VDRAVQ'}

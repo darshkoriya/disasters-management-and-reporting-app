@@ -15,7 +15,8 @@ class BloodReportsRow(BloodReportsRowTemplate):
     state, self.user = anvil.server.call("get_login_data", token)
 
     # Set data from ListDisasters
-    self.label_blood_type.text = f"Severity: {self.item.get('blood_type', 'Unknown')}"
+    self.label_blood_type.text = f"Blood Type: {self.item.get('blood_type', 'Unknown')}"
+    self.label_contact.text = f"Contact: {self.item.get('contact', 'Unknow')}"
     self.lat, self.lon = map(float, self.item.get("location").strip().split(","))
     self.report_id = self.item.get("id")
     position = GoogleMap.LatLng(self.lat, self.lon)
@@ -27,9 +28,8 @@ class BloodReportsRow(BloodReportsRowTemplate):
       self.delete_report.visible = True
 
     # Set background color based on severity
-    severity = self.item.get("severity", "Mild")
     self.role = "card"
-    self.background = 
+    self.background = "#00c928"
 
     self.location_map.center = position
     self.location_map.zoom = 12
@@ -44,9 +44,9 @@ class BloodReportsRow(BloodReportsRowTemplate):
     self.location_map.visible = not self.location_map.visible
 
   def delete_report_click(self, **event_args):
-    success = anvil.server.call("delete_disaster", self.disaster_id)
+    success = anvil.server.call("delete_blood_report", self.report_id)
     if success:
       self.parent.items = [
-        item for item in self.parent.items if item.get("id") != self.disaster_id
+        item for item in self.parent.items if item.get("id") != self.report_id
       ]
       open_form("dashboard")

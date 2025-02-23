@@ -222,15 +222,16 @@ def get_blood_reports():
             "id": row["id"],
             "user_id": row['user_id'],
             "location": row['location'],
-            "blood_type": row["Blood_type"]
+            "blood_type": row["Blood_type"],
+            "contact": row['contact']
         }
         for row in app_tables.blood_reports.search()
     ]
 
 
 @anvil.server.callable
-def submit_blood_report(user_id, location, blood_type):
-  app_tables.blood_reports.add_row(id=generate_random_text(20,True,False), user_id=user_id, location=location, Blood_type=blood_type)
+def submit_blood_report(user_id, location, blood_type, contact):
+  app_tables.blood_reports.add_row(id=generate_random_text(20,True,False), user_id=user_id, location=location, Blood_type=blood_type, contact=contact)
 
 
 @anvil.server.callable
