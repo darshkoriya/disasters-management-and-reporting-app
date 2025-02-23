@@ -1,0 +1,12 @@
+components:
+- event_bindings: {click: clear_reports_click}
+  layout_properties: {grid_position: 'ZBIYCL,TGSEQT'}
+  name: clear_reports
+  properties: {align: left, background: red, foreground: white, text: Clear All Reports, visible: false}
+  type: Button
+- layout_properties: {grid_position: 'SGOHMO,NMTGRF'}
+  name: repeating_panel_1
+  properties: {item_template: dashboard.BloodReportsRow}
+  type: RepeatingPanel
+container: {type: ColumnPanel}
+is_package: true

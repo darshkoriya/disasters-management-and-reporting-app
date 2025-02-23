@@ -25,6 +25,7 @@ class DisasterRow(DisasterRowTemplate):
         print(self.item)
 
         if self.user['is_admin']: self.delete_disaster.visible = True
+        if self.user['user_id'] == self.item.get('reporter_id'): self.delete_disaster.visible = True
 
 
         # Set background color based on severity

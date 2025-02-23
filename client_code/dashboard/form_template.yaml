@@ -15,6 +15,11 @@ components:
     name: home_link
     properties: {align: center, text: Home}
     type: Link
+  - event_bindings: {click: blood_reports_link_click}
+    layout_properties: {grid_position: 'NFPXUT,WXKEVB'}
+    name: blood_reports_link
+    properties: {align: center, text: Blood Reports}
+    type: Link
   - event_bindings: {click: report_disaster_button_click}
     layout_properties: {grid_position: 'YFNQSY,MSJKZZ'}
     name: report_disaster_button

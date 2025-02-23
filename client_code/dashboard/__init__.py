@@ -8,9 +8,9 @@ import anvil.server
 import anvil.js
 
 from .ListDisasters import ListDisasters
-from .QrGen import QrGen
 from .ReportDisaster import ReportDisaster
 from .EditUser import EditUser
+from .BloodReports import BloodReports
 
 
 class dashboard(dashboardTemplate):
@@ -30,9 +30,9 @@ class dashboard(dashboardTemplate):
     self.location_label.text = coordinates_map.get(tuple(map(float, str(self.user['home_location']).split(", "))), "404: Unknown Location")
     self.forms = {
             "ListDisasters": ListDisasters,
-            "QrGen": QrGen,
             "ReportDisaster": ReportDisaster,
-            "EditProfile": EditUser
+            "EditProfile": EditUser,
+            "BloodReports": BloodReports
         }
     self.load_form('ListDisasters')
 
@@ -77,3 +77,6 @@ class dashboard(dashboardTemplate):
 
   def home_link_click(self, **event_args):
     self.load_form('ListDisasters')
+
+  def blood_reports_link_click(self, **event_args):
+    self.load_form('BloodReports')
