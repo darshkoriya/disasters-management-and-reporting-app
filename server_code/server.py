@@ -51,7 +51,6 @@ def generate_user_id(length: int = 8) -> str:
     return ''.join(random.choices("0123456789", k=length))
 
 def generate_random_text(length: int = 10, use_digits: bool = True, use_special_chars: bool = False) -> str:
-    """Generate a random text string with the given length."""
     characters = string.ascii_letters  # A-Z, a-z
     
     if use_digits:
