@@ -1,7 +1,7 @@
 components:
 - event_bindings: {click: request_blood_button_click}
   layout_properties: {grid_position: 'IKWYKI,NDQIDS'}
-  name: request_blood_button
+  name: donate_blood_button
   properties: {align: left, background: white, bold: true, enabled: true, foreground: black, text: Donate Blood, visible: true}
   type: Button
 - components:
