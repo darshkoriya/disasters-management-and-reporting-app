@@ -1,0 +1,26 @@
+components:
+- layout_properties: {grid_position: 'QJCEEA,XGKJLA SAICEF,JDKYEL'}
+  name: label_blood_type
+  properties: {align: center, bold: true, foreground: black, text: ''}
+  type: Label
+- event_bindings: {click: show_location_click}
+  layout_properties: {grid_position: 'QJCEEA,XGKJLA'}
+  name: show_location
+  properties: {align: center, background: white, bold: true, foreground: black, text: Show Location}
+  type: Button
+- layout_properties: {grid_position: 'QJCEEA,QOSUMJ NQVJMU,PWSSNV'}
+  name: label_contact
+  properties: {align: center, bold: true, foreground: black}
+  type: Label
+- event_bindings: {click: delete_report_click}
+  layout_properties: {grid_position: 'QJCEEA,QOSUMJ BIEACD,JAENAB'}
+  name: delete_report
+  properties: {align: center, background: red, bold: true, foreground: white, icon: 'fa:trash', text: Remove, visible: false}
+  type: Button
+- event_bindings: {bounds_changed: location_map_bounds_changed}
+  layout_properties: {grid_position: 'EDQDBT,VDRAVQ'}
+  name: location_map
+  properties: {clickable_icons: false, height: 404.5, visible: false}
+  type: GoogleMap
+container: {type: ColumnPanel}
+is_package: true

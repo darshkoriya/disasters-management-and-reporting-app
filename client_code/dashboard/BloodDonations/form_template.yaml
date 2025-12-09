@@ -1,0 +1,43 @@
+components:
+- event_bindings: {click: request_blood_button_click}
+  layout_properties: {grid_position: 'IKWYKI,NDQIDS'}
+  name: request_blood_button
+  properties: {align: left, background: white, bold: true, enabled: true, foreground: black, text: Donate Blood, visible: true}
+  type: Button
+- components:
+  - layout_properties: {grid_position: 'HVPUIW,ZMFNLB'}
+    name: label_1
+    properties: {align: center, bold: true, text: Dpnate BLood}
+    type: Label
+  - layout_properties: {grid_position: 'WWJPTQ,SKPPSZ'}
+    name: blood_type_input
+    properties: {}
+    type: DropDown
+  - layout_properties: {grid_position: 'VJQJVI,XHPOJB'}
+    name: label_2
+    properties: {text: Enter Contact No}
+    type: Label
+  - layout_properties: {grid_position: 'XNEYZD,DDCQKG'}
+    name: contact_no_input
+    properties: {placeholder: Contact No.}
+    type: TextBox
+  - event_bindings: {click: submit_click}
+    layout_properties: {grid_position: 'NZNSYQ,NUQTXS'}
+    name: submit
+    properties: {background: white, bold: true, foreground: black, text: Submit}
+    type: Button
+  layout_properties: {grid_position: 'TCZDEL,UDTEZV'}
+  name: report_panel
+  properties: {visible: false}
+  type: ColumnPanel
+- event_bindings: {click: clear_reports_click}
+  layout_properties: {grid_position: 'ZBIYCL,TGSEQT'}
+  name: clear_reports
+  properties: {align: left, background: red, bold: true, foreground: white, text: Clear All Reports, visible: false}
+  type: Button
+- layout_properties: {grid_position: 'SGOHMO,NMTGRF'}
+  name: repeating_panel_1
+  properties: {item_template: dashboard.BloodReportsRow}
+  type: RepeatingPanel
+container: {type: ColumnPanel}
+is_package: true
