@@ -82,3 +82,6 @@ class dashboard(dashboardTemplate):
 
   def blood_reports_link_click(self, **event_args):
     self.load_form('BloodReports')
+
+  def donate_blood_click(self, **event_args):
+    self.load_form('BloodDonations')
