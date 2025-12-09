@@ -54,11 +54,11 @@ class BloodReports(BloodReportsTemplate):
 
   def clear_reports_click(self, **event_args):
     anvil.server.call("delete_blood_report")
-    self.refresh_disaster_list()
+    open_form("dashboard.BloodReports")
 
   def request_blood_button_click(self, **event_args):
     self.report_panel.visible = not self.report_panel.visible
 
   def submit_click(self, **event_args):
     anvil.server.call('submit_blood_report', self.user['user_id'], f'{self.lat}, {self.lon}', self.blood_type_input.selected_value, self.contact_no_input.text)
-    self.refresh_blood_reports()
+    open_form("dashboard.BloodReports")
