@@ -56,7 +56,7 @@ class BloodDonations(BloodDonationsTemplate):
     anvil.server.call("delete_blood_report")
     self.refresh_disaster_list()
 
-  def request_blood_button_click(self, **event_args):
+  def donate_blood_button_click(self, **event_args):
     self.report_panel.visible = not self.report_panel.visible
 
   def submit_click(self, **event_args):
