@@ -12,6 +12,10 @@ components:
   name: label_contact
   properties: {align: center, bold: true, foreground: black}
   type: Label
+- layout_properties: {grid_position: 'QJCEEA,QOSUMJ NQVJMU,ADFMGN'}
+  name: label_name
+  properties: {align: center, bold: true, foreground: black}
+  type: Label
 - event_bindings: {click: delete_report_click}
   layout_properties: {grid_position: 'QJCEEA,QOSUMJ BIEACD,JAENAB'}
   name: delete_report

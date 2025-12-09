@@ -8,18 +8,29 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 natural_disasters = {
-    "Severe": [
-        "Earthquake", "Tsunami", "Hurricane", "Volcanic Eruption",
-        "Major Flood", "Cyclone", "Typhoon", "Wildfire"
-    ],
-    "Moderate": [
-        "Tornado", "Landslide", "Blizzard", "Heatwave",
-        "Cold Wave", "Drought"
-    ],
-    "Mild": [
-        "Hailstorm", "Dust Storm", "Lightning Strike", "Sinkhole"
-    ]
+  "Severe": [
+    "Earthquake", "Tsunami", "Hurricane", "Volcanic Eruption",
+    "Major Flood", "Cyclone", "Typhoon", "Wildfire",
+    "Nuclear Explosion", "Chemical Plant Explosion",
+    "Terrorist Attack", "Large-Scale Industrial Fire",
+    "Pandemic", "Power Grid Collapse", "Plane Crash"
+  ],
+
+  "Moderate": [
+    "Tornado", "Landslide", "Blizzard", "Heatwave",
+    "Cold Wave", "Drought", "Building Collapse",
+    "Oil Spill", "Train Accident", "Mining Accident",
+    "Cyber Attack", "Large Network Failure", "Dam Failure"
+  ],
+
+  "Mild": [
+    "Hailstorm", "Dust Storm", "Lightning Strike", "Sinkhole",
+    "Car Accident", "Local Fire", "Gas Leak",
+    "Small Chemical Spill", "Minor Data Loss",
+    "Small Equipment Failure"
+  ]
 }
+
 
 all_disasters = sum(natural_disasters.values(), [])
 

@@ -38,7 +38,7 @@ class BloodDonations(BloodDonationsTemplate):
     else:
       alert("Geolocation is not supported by your browser.")
 
-    self.refresh_blood_reports()
+    self.refresh_blood_donations()
 
   def location_success(self, position):
     """Callback when location is retrieved successfully"""
@@ -50,17 +50,19 @@ class BloodDonations(BloodDonationsTemplate):
     """Callback when location retrieval fails"""
     alert(f"Error getting location: {error.message}")
 
-  def refresh_blood_reports(self):
-    blood_reports = anvil.server.call("get_blood_reports")
-    self.repeating_panel_1.items = blood_reports
+  def refresh_blood_donations(self):
+    blood_donations = anvil.server.call("get_blood_donations")
+    self.repeating_panel_1.items = blood_donations
 
-  def clear_reports_click(self, **event_args):
-    anvil.server.call("delete_blood_report")
+  def clear_donations_click(self, **event_args):
+    anvil.server.call("delete_blood_donations")
     self.refresh_disaster_list()
 
   def donate_blood_button_click(self, **event_args):
     self.report_panel.visible = not self.report_panel.visible
 
   def submit_click(self, **event_args):
-    anvil.server.call('submit_blood_report', self.user['user_id'], f'{self.lat}, {self.lon}', self.blood_type_input.selected_value, self.contact_no_input.text)
-    self.refresh_blood_reports()
+    anvil.server.call('submit_blood_donation', self.user['user_id'], f'{self.lat}, {self.lon}', self.blood_type_input.selected_value, self.contact_no_input.text, self.name_input.text)
+    self.refresh_blood_donations()
+
+

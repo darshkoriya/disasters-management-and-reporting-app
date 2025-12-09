@@ -19,6 +19,7 @@ class BloodDonateRow(BloodDonateRowTemplate):
     # Set data from ListDisasters
     self.label_blood_type.text = f"Blood Type: {self.item.get('blood_type', 'Unknown')}"
     self.label_contact.text = f"Contact: {self.item.get('contact', 'Unknow')}"
+    self.label_name.text = f"By: {self.item.get('name', 'Unknow')}"
     self.lat, self.lon = map(float, self.item.get("location").strip().split(","))
     self.report_id = self.item.get("id")
     position = GoogleMap.LatLng(self.lat, self.lon)
@@ -46,7 +47,7 @@ class BloodDonateRow(BloodDonateRowTemplate):
     self.location_map.visible = not self.location_map.visible
 
   def delete_report_click(self, **event_args):
-    success = anvil.server.call("delete_blood_report", self.report_id)
+    success = anvil.server.call("delete_blood_donation", self.report_id)
     if success:
       self.parent.items = [
         item for item in self.parent.items if item.get("id") != self.report_id

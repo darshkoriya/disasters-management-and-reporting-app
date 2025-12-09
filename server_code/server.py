@@ -238,11 +238,45 @@ def submit_blood_report(user_id, location, blood_type, contact):
 @anvil.server.callable
 def delete_blood_report(blood_id=None):
   if not blood_id:
-    for row in app_tables.disasters.search():
+    for row in app_tables.blood_reports.search():
             row.delete()
     return True
     
   disaster = app_tables.blood_reports.get(id=blood_id)
+  if disaster:
+    disaster.delete()
+    return True
+  return False
+
+
+@anvil.server.callable
+def get_blood_donations():
+  return [
+    {
+      "id": row["id"],
+      "user_id": row['user_id'],
+      "location": row['location'],
+      "blood_type": row["Blood_type"],
+      "contact": row['contact'],
+      "name": row['name']
+    }
+    for row in app_tables.blood_donations.search()
+  ]
+
+
+@anvil.server.callable
+def submit_blood_donation(user_id, location, blood_type, contact, name):
+  app_tables.blood_donations.add_row(id=generate_random_text(20,True,False), user_id=user_id, location=location, Blood_type=blood_type, contact=contact, name=name)
+
+
+@anvil.server.callable
+def delete_blood_donation(blood_id=None):
+  if not blood_id:
+    for row in app_tables.blood_donations.search():
+      row.delete()
+    return True
+
+  disaster = app_tables.blood_donations.get(id=blood_id)
   if disaster:
     disaster.delete()
     return True

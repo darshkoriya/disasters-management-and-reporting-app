@@ -13,6 +13,7 @@ from .ListDisasters import ListDisasters
 from .ReportDisaster import ReportDisaster
 from .EditUser import EditUser
 from .BloodReports import BloodReports
+from .BloodDonations import BloodDonations
 
 
 class dashboard(dashboardTemplate):
@@ -34,7 +35,8 @@ class dashboard(dashboardTemplate):
             "ListDisasters": ListDisasters,
             "ReportDisaster": ReportDisaster,
             "EditProfile": EditUser,
-            "BloodReports": BloodReports
+            "BloodReports": BloodReports,
+            "BloodDonations": BloodDonations
         }
     self.load_form('ListDisasters')
 
@@ -83,5 +85,7 @@ class dashboard(dashboardTemplate):
   def blood_reports_link_click(self, **event_args):
     self.load_form('BloodReports')
 
-  def donate_blood_click(self, **event_args):
+  def donate_blood_link_click(self, **event_args):
+    print("Button clicked")
     self.load_form('BloodDonations')
+

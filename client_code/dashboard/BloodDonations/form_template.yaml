@@ -1,5 +1,5 @@
 components:
-- event_bindings: {click: request_blood_button_click}
+- event_bindings: {click: donate_blood_button_click}
   layout_properties: {grid_position: 'IKWYKI,NDQIDS'}
   name: donate_blood_button
   properties: {align: left, background: white, bold: true, enabled: true, foreground: black, text: Donate Blood, visible: true}
@@ -21,6 +21,14 @@ components:
     name: contact_no_input
     properties: {placeholder: Contact No.}
     type: TextBox
+  - layout_properties: {grid_position: 'FJQCDY,LGCXTZ'}
+    name: label_2_copy
+    properties: {text: Enter Your Name}
+    type: Label
+  - layout_properties: {grid_position: 'OEDHKZ,CADYTC'}
+    name: name_input
+    properties: {placeholder: Name}
+    type: TextBox
   - event_bindings: {click: submit_click}
     layout_properties: {grid_position: 'NZNSYQ,NUQTXS'}
     name: submit
@@ -37,7 +45,7 @@ components:
   type: Button
 - layout_properties: {grid_position: 'SGOHMO,NMTGRF'}
   name: repeating_panel_1
-  properties: {item_template: dashboard.BloodReportsRow}
+  properties: {item_template: dashboard.BloodDonateRow}
   type: RepeatingPanel
 container: {type: ColumnPanel}
 is_package: true

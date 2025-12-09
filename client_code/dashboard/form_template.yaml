@@ -21,11 +21,11 @@ components:
     name: blood_reports_link
     properties: {align: center, text: Blood Reports}
     type: Link
-  - event_bindings: {click: donate_blood_click}
-    layout_properties: {grid_position: 'XLXECN,FXNTJT'}
-    name: donate_blood
-    properties: {text: Donate Blood}
-    type: Button
+  - event_bindings: {click: donate_blood_link_click}
+    layout_properties: {grid_position: 'DSDBNH,GMKHEW'}
+    name: donate_blood_link
+    properties: {align: center, italic: false, text: Donate Blood}
+    type: Link
   - event_bindings: {click: report_disaster_button_click}
     layout_properties: {grid_position: 'YFNQSY,MSJKZZ'}
     name: report_disaster_button
