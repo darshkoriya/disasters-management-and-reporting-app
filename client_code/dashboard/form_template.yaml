@@ -6,7 +6,7 @@ components:
   type: ColumnPanel
 - layout_properties: {slot: title}
   name: MAIN_TITLE
-  properties: {bold: true, text: Disasters}
+  properties: {bold: true, text: LIFE LINK, underline: true}
   type: Label
 - components:
   - components: []
@@ -17,9 +17,9 @@ components:
     type: Link
   - components: []
     event_bindings: {click: blood_reports_link_click}
-    layout_properties: {grid_position: 'NFPXUT,WXKEVB'}
+    layout_properties: {grid_position: 'NGZAXF,WJTKOO'}
     name: blood_reports_link
-    properties: {align: center, text: Blood Reports}
+    properties: {align: center, text: Request Blood}
     type: Link
   - event_bindings: {click: donate_blood_link_click}
     layout_properties: {grid_position: 'DSDBNH,GMKHEW'}
@@ -29,7 +29,7 @@ components:
   - event_bindings: {click: report_disaster_button_click}
     layout_properties: {grid_position: 'YFNQSY,MSJKZZ'}
     name: report_disaster_button
-    properties: {background: red, border: '', foreground: white, text: Report Disaster}
+    properties: {background: red, border: '', foreground: white, text: SOS Button}
     type: Button
   - event_bindings: {click: generate_qr_click}
     layout_properties: {grid_position: 'UFGAPR,FAJYKA'}
